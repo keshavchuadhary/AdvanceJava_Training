@@ -3,11 +3,11 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 
-public class ListingWithButtons {
+public class ListingWith {
     private DefaultListModel<String> listModel;
     private JList<String> itemList;
     
-    public ListingWithButtons() {
+    public ListingWith() {
         // Frame setup
         JFrame frame = new JFrame("Listing Component");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,6 +60,6 @@ public class ListingWithButtons {
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(ListingWithButtons::new);
+        SwingUtilities.invokeLater(ListingWith::new);
     }
 }
