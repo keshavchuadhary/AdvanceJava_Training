@@ -1,0 +1,3 @@
+jdbc.url=jdbc:derby://localhost:1527/CORE JAVA;create=true
+jdbc.username=app
+jdbc.password=secret
