@@ -17,10 +17,9 @@ public class TestDatabase {
     }
   }
   public static void testRun() throws SQLException, IOException {
-    try (
-        Connection connection = getConnection();
-        Statement statement = connection.createStatement()
-    ){
+    Connection connection = getConnection();
+    Statement statement = connection.createStatement();
+    try{
       statement.executeUpdate("CREATE TABLE GREETINGS (Message char(20))");
       statement.executeUpdate("insert into GREETINGS VALUES('Hello, World !')");
 
@@ -30,6 +29,8 @@ public class TestDatabase {
         }
         statement.executeUpdate("drop table greetings");
       }
+    }catch(SQLException e){
+      e.printStackTrace();
     }
   }
 
@@ -44,12 +45,12 @@ public class TestDatabase {
     }
     String drivers = props.getProperty("jdbc.drivers");
 
-    /*try {
-      Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
-    } catch (Exception except)
-    {
-      except.printStackTrace();
-    }*/
+    // try {
+    //   Class.forName("org.apache.derby.jdbc.ClientDriver").newInstance();
+    // } catch (Exception except)
+    // {
+    //   except.printStackTrace();
+    // }
 
     if (drivers != null) System.setProperty("jdbc.drivers", drivers);
     // DriverManager.registerDriver(new org.apache.derby.jdbc.ClientDriver()); 
